@@ -1,0 +1,58 @@
+@import 'styles/variables';
+@import 'bulma/sass/utilities/initial-variables';
+
+
+.markdown {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    margin-top: 5px;
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    margin-top: 5px;
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+  }
+
+  h5, h6 {
+    font-size: 1rem;
+  }
+  
+
+  ul {
+    list-style: disc;
+    padding-left: 4ch;
+  }
+
+  code {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: consolas, monaco, courier, "courier new", monospace;
+    color: #333333;
+  }
+
+  table td, table td:not([align]), table th:not([align]) {
+    text-align: left;
+    color: $grey;
+    border: 1px solid $grey;
+    padding: 5px 10px;
+  }
+}
