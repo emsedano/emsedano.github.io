@@ -54,6 +54,11 @@ Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
 ---------------
 
 A component by [Espen Hovlandsdal](https://espen.codes/)
+
+- Spanish / English speaker\n
+- Leadership\n
+- Great problem solver \n
+- Quick learner\n
 `;
 
 export function Resume() {
