@@ -58,8 +58,27 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
 - Quick learner\n
 
 
+Design and development of core business and shared components for a global platform for real estate researchers & brokers.\n
+- built core base of in-house standard JSON object reader and patcher.\n
+- built composers objects as object builders to segregate business logic and create composable object.\n
+- built wizard angular component/service to create workflow efficiencies.\n
+- set base structure for reporting tools framework.\n
+- design developed reusable/configurable components like tables and agnostic command sets to add flexibility of business logic.\n
+- main contributor for design &  development platform to display filter items and form control inputs based on database catalog definition to
+allow reusability across the platform.\n
 
 
+As a nearshore company, we were a team extension for an Important American bank, we develop web application experiences using several 
+frameworks like Spring, apache wicket and others (using mostly JavaEE 6+) running on clustered IBM WebSphere Application Servers environments.
+Domain application are related to real estate,credit cards and more.
+
+
+Spree Commerce implementations (Llantiprecio, Ingredienta & [ePinturas](https://www.epinturas.com.mx)). Spree commerce is a Ruby on Rails open source e-commerce framework, 
+these applications were capable of user authentication, registration, password recovery, account and products management, cart and checkout process. We developed extra features 
+like ERP sync (products & purchases). All implementations were complemented with AngularJS applications.\n
+
+- Main developer contributor in the three projects.\n
+- Other Ruby on Rails projects.\n
 
 
 
