@@ -17,9 +17,7 @@ export function Resume() {
       {(profile: ProfileModel) => {
         return (
           <div>
-            <section className="section">
-              <Profile profile={profile}></Profile>
-            </section>
+            <Profile profile={profile}></Profile>
             <section className="section no-padding-top">
               <div className="columns">
                 <div className="column">

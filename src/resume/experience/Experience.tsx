@@ -2,9 +2,12 @@ import React from 'react';
 import { ProfileProps, Experience as ExperienceModel } from '../../core/ProfileModel';
 import { MarkdownContent } from '../../shared/components/markdown-content/markdown-content';
 
-function Experience({ experience, index = 0 }: { experience: ExperienceModel; index?: number }) {
+import './Experience.scss';
+
+function Experience({ experience, className = '' }: { experience: ExperienceModel; className?: string }) {
+  const css = `experience ${className}`;
   return (
-    <div className="experience">
+    <div className={css}>
       <p className="subtitle">
         <strong>{experience.company}</strong>
       </p>
@@ -25,7 +28,7 @@ export function AdditionalExperience({ profile }: ProfileProps) {
   return (
     <div>
       {additionalExperience.map((experience, index) => {
-        return <Experience key={index} experience={experience} />;
+        return <Experience key={index} className="additional-experience" experience={experience} />;
       })}
     </div>
   );
