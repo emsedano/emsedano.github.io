@@ -4,7 +4,6 @@ import logo from '../../logo.svg';
 import './Profile.scss';
 
 export function Profile({ profile }: ProfileProps) {
-  console.log(profile);
   return (
     <article className="profile media">
       <figure className="media-left">

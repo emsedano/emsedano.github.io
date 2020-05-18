@@ -3,18 +3,16 @@ import React, { useState } from 'react';
 import { ProfileProps, Education as EducationModel } from '../../core/ProfileModel';
 import { getMonth } from '../../shared/utils/getMonthName';
 
-import './Education.scss';
-
 function EducationItem({ education }: { education: EducationModel }) {
   const endDate = education.endDate.toDate();
   const month = getMonth(endDate.getMonth());
   const year = endDate.getFullYear();
   return (
     <div className="education">
-      <p>
+      <p className="subtitle">
         <strong>{education.degree}</strong>
       </p>
-      <p>{education.school}</p>
+      <p className="subtitle">{education.school}</p>
       <p>
         {month}, {year}
       </p>
@@ -32,9 +30,11 @@ export function Education({ profile }: ProfileProps) {
 
       {formerEducation && formerEducation.length ? (
         <div className="content">
-          <p>
+          <p className="no-print">
             <small>
-              <a onClick={() => setShowMore(!showMore)}>{showMore ? 'Show less...' : 'Show more...'}</a>
+              <a role="button" href="#" onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Show less...' : 'Show more...'}
+              </a>
             </small>
           </p>
           {showMore

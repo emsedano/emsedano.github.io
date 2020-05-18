@@ -1,8 +1,8 @@
 import React from 'react';
 import { Resume } from './resume/Resume';
 import { FirebaseContext } from './firebase';
-import { ProfileService, loadChildRefs } from './core/ProfileService';
-import { take, delay, switchMap } from 'rxjs/operators';
+import { ProfileService } from './core/ProfileService';
+import { takeWhile } from 'rxjs/operators';
 import { Loader } from './loading/Loader';
 import { ProfileContext } from './core/ProfileContext';
 import { Footer } from './footer/Footer';
@@ -13,36 +13,18 @@ export class App extends React.Component {
 
   state = {
     loading: true,
-    loadingStatus: 'Loading profile',
+    loadingStatus: 'Loading Profile',
     profile: {},
   };
 
   componentDidMount() {
     // to give experience of loading only
-    const randomWaitTime = () => Math.ceil(Math.random() * 900);
-
     this.profileService = new ProfileService(this.context);
-    this.profileService.profile$
-      .pipe(take(1))
-      .pipe(
-        delay(randomWaitTime()),
-        switchMap(profile => {
-          this.setState(state => ({ ...state, loadingStatus: 'Fetching Experience' }));
-          return loadChildRefs(profile, 'experience');
-        }),
-        delay(randomWaitTime()),
-        switchMap(profile => {
-          this.setState(state => ({ ...state, loadingStatus: 'Fetching Articles' }));
-          return loadChildRefs(profile, 'articles');
-        }),
-        delay(randomWaitTime()),
-        switchMap(profile => {
-          this.setState(state => ({ ...state, loadingStatus: 'Fetching Education' }));
-          return loadChildRefs(profile, 'education');
-        }),
-        delay(randomWaitTime())
-      )
-      .subscribe(profile => this.setState({ loading: false, profile }));
+
+    this.profileService
+      .fetchProfile()
+      .pipe(takeWhile(() => this.state.loading))
+      .subscribe(state => this.setState(state));
   }
 
   render() {

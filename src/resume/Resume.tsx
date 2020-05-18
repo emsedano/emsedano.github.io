@@ -4,62 +4,12 @@ import { Profile } from './profile/Profile';
 import { ProfileModel } from '../core/ProfileModel';
 import { Tile } from '../shared/components';
 import { Education } from './education/Education';
-import { Experience } from './experience/Experience';
+import { RecentExperience, AdditionalExperience } from './experience/Experience';
 
 import ReactMarkdown from 'react-markdown';
+import { MarkdownContent } from '../shared/components/markdown-content/markdown-content';
 
-const input = `
-# Live demo
-
-Changes are automatically rendered as you type.
-
-## Table of Contents
-
-* Implements [GitHub Flavored Markdown](https://github.github.com/gfm/)
-* Renders actual, "native" React DOM elements
-* Allows you to escape or skip HTML (try toggling the checkboxes above)
-* If you escape or skip the HTML, no \`dangerouslySetInnerHTML\` is used! Yay!
-
-## HTML block below
-
-<blockquote>
-  This blockquote will change based on the HTML settings above.
-</blockquote>
-
-## How about some code?
-\`\`\`js
-var React = require('react');
-var Markdown = require('react-markdown');
-
-React.render(
-  <Markdown source="# Your markdown here" />,
-  document.getElementById('content')
-);
-\`\`\`
-
-Pretty neat, eh?
-
-## Tables?
-
-| Feature   | Support |
-| --------- | ------- |
-| tables    | ✔ |
-| alignment | ✔ |
-| wewt      | ✔ |
-
-## More info?
-
-Read usage information and more on [GitHub](//github.com/rexxars/react-markdown)
-
----------------
-
-A component by [Espen Hovlandsdal](https://espen.codes/)
-
-- Spanish / English speaker\n
-- Leadership\n
-- Great problem solver \n
-- Quick learner\n
-`;
+// import markdownText from './__mocks__/markdownText';
 
 export function Resume() {
   return (
@@ -87,11 +37,7 @@ export function Resume() {
                   </Tile>
                   <Tile className="is-parent">
                     <Tile title="Other skills" className="is-child">
-                      <div className="markdown">
-                        <div className="markdown">
-                          <ReactMarkdown source={profile.softSkills.replace(/\\n/gi, '\n')} escapeHtml={false} />
-                        </div>
-                      </div>
+                      <MarkdownContent content={profile.softSkills} />
                     </Tile>
                   </Tile>
                 </div>
@@ -103,7 +49,7 @@ export function Resume() {
                   </Tile>
                   <Tile className="is-parent">
                     <Tile title="current work" className="is-child">
-                      <Experience profile={profile} />
+                      <RecentExperience profile={profile} />
                     </Tile>
                   </Tile>
                   <Tile className="is-parent">
@@ -111,8 +57,8 @@ export function Resume() {
                       <ul>
                         {profile.articles.map((article, index) => {
                           return (
-                            <li>
-                              <a key={index} href={article.source}>
+                            <li key={index}>
+                              <a target="_blank" rel="noopener noreferrer" href={article.source}>
                                 {article.text}
                               </a>
                             </li>
@@ -127,9 +73,7 @@ export function Resume() {
                 <div className="column">
                   <Tile className="is-parent">
                     <Tile title="Additional experience" className="is-child">
-                      <div className="markdown">
-                        <ReactMarkdown source={'#holo'} escapeHtml={false} />
-                      </div>
+                      <AdditionalExperience profile={profile} />
                     </Tile>
                   </Tile>
                 </div>

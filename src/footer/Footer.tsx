@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer no-print">
       <div className="content has-text-centered is-small">
         <p>
           By{' '}
