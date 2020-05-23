@@ -16,7 +16,8 @@ export interface Contact {
 
 export interface Education {
   degree: string;
-  startDate: Date;
+  type: 'cert' | 'college';
+  startDate: firestore.Timestamp;
   endDate: firestore.Timestamp;
   school: string;
 }
@@ -26,8 +27,8 @@ export interface Experience {
   position: string;
   pride: string;
   projects: DataObject[];
-  startDate: Date;
-  endDate: Date;
+  startDate: firestore.Timestamp;
+  endDate: firestore.Timestamp;
 }
 
 export interface Articles {

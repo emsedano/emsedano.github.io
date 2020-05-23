@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProfileProps, Experience as ExperienceModel } from '../../core/ProfileModel';
 import { MarkdownContent } from '../../shared/components/markdown-content/markdown-content';
-
+import { dateRanges } from '../../shared/utils/dateUtils';
 import './Experience.scss';
 
 function Experience({ experience, className = '' }: { experience: ExperienceModel; className?: string }) {
@@ -9,7 +9,10 @@ function Experience({ experience, className = '' }: { experience: ExperienceMode
   return (
     <div className={css}>
       <p className="subtitle">
-        <strong>{experience.company}</strong>
+        <strong>{experience.company}</strong>{' '}
+        <small className="content is-small">
+          {dateRanges(' - ', experience.startDate.toDate(), experience?.endDate?.toDate())}
+        </small>
       </p>
       <p className="subtitle">{experience.position}</p>
       <MarkdownContent content={experience.pride} />
