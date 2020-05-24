@@ -5,32 +5,34 @@ import './Profile.scss';
 
 export function Profile({ profile }: ProfileProps) {
   return (
-    <section className="section profile">
-      <article className="media">
-        <figure className="media-left">
-          <p className="image is-128x128">
-            <img src={logo} alt="logo" />
-          </p>
-        </figure>
-        <div className="media-content">
-          <div className="content">
-            <h1 className="title">
-              <strong>{profile.name}</strong>
-            </h1>
-            <h2 className="subtitle">{profile.career}</h2>
-          </div>
-          <div className="content is-small">
-            <p>
-              <small>{profile.contact.phone}</small>
+    <div className="container">
+      <section className="section profile">
+        <article className="media">
+          <figure className="media-left">
+            <p className="image is-128x128">
+              <img src={logo} alt="logo" />
             </p>
-            <p>
-              <small>
-                <a href="mailto:someone@yoursite.com">{profile.contact.email}</a>
-              </small>
-            </p>
+          </figure>
+          <div className="media-content">
+            <div className="content">
+              <h1 className="title no-margin-bottom">
+                <strong>{profile.name}</strong>
+              </h1>
+              <h2 className="subtitle no-margin-bottom">{profile.career}</h2>
+            </div>
+            <div className="content is-small">
+              <p>
+                <small>{profile.contact.phone}</small>
+              </p>
+              <p>
+                <small>
+                  <a href="mailto:someone@yoursite.com">{profile.contact.email}</a>
+                </small>
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
+        </article>
+      </section>
+    </div>
   );
 }

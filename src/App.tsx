@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Resume } from './resume/Resume';
 import { FirebaseContext } from './firebase';
 import { ProfileService } from './core/ProfileService';
@@ -6,15 +6,19 @@ import { takeWhile } from 'rxjs/operators';
 import { Loader } from './loading/Loader';
 import { ProfileContext } from './core/ProfileContext';
 import { Footer } from './footer/Footer';
+import { Profile } from './resume/profile/Profile';
+import { ProfileModel } from './core/ProfileModel';
+
+type AppState = { loading: boolean; loadingStatus?: string; profile?: ProfileModel };
 
 export class App extends React.Component {
   static contextType = FirebaseContext;
   private profileService: ProfileService;
 
-  state = {
+  state: AppState = {
     loading: true,
     loadingStatus: 'Loading Profile',
-    profile: {},
+    profile: null,
   };
 
   componentDidMount() {
@@ -34,15 +38,18 @@ export class App extends React.Component {
       <Loader text={loadingStatus} />
     ) : (
       <ProfileContext.Provider value={profile}>
-        <Resume />
+        <Fragment>
+          <Profile profile={profile}></Profile>
+          <Resume />
+        </Fragment>
       </ProfileContext.Provider>
     );
 
     return (
-      <div>
-        <div className="container">{content}</div>
+      <Fragment>
+        {content}
         <Footer />
-      </div>
+      </Fragment>
     );
   }
 }

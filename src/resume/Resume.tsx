@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ProfileContext } from '../core/ProfileContext';
 import { Profile } from './profile/Profile';
 import { ProfileModel } from '../core/ProfileModel';
@@ -16,8 +16,7 @@ export function Resume() {
     <ProfileContext.Consumer>
       {(profile: ProfileModel) => {
         return (
-          <div>
-            <Profile profile={profile}></Profile>
+          <div className="container">
             <section className="section no-padding-top">
               <div className="columns">
                 <div className="column">

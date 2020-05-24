@@ -1,6 +1,7 @@
 .tile {
   .title,
   .title:not(:last-child) {
+    font-weight: 500;
     font-size: 1.5rem;
     text-transform: uppercase;
     border-bottom: 5px solid #47506f;
@@ -9,6 +10,7 @@
   }
 
   p.subtitle {
+    font-weight: 500;
     margin-bottom: 10px;
   }
 }
