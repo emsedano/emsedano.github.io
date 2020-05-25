@@ -20,14 +20,31 @@ export function Profile({ profile }: ProfileProps) {
               </h1>
               <h2 className="subtitle no-margin-bottom">{profile.career}</h2>
             </div>
-            <div className="content is-small">
+            <div className="content">
               <p>
                 <small>{profile.contact.phone}</small>
               </p>
               <p>
                 <small>
-                  <a href="mailto:someone@yoursite.com">{profile.contact.email}</a>
+                  <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
                 </small>
+              </p>
+              <p className="social-link">
+                <a target="_blank" rel="noopener noreferrer" href={profile.social.linkedIn}>
+                  <span className="icon">
+                    <i className="fab fa-linkedin fa-lg"></i>
+                  </span>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href={profile.social.github}>
+                  <span className="icon">
+                    <i className="fab fa-github fa-lg"></i>
+                  </span>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href={profile.social.instagram}>
+                  <span className="icon">
+                    <i className="fab fa-instagram fa-lg"></i>
+                  </span>
+                </a>
               </p>
             </div>
           </div>

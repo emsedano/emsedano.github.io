@@ -2,8 +2,6 @@
 
 .profile {
   .media-content {
-    padding: 10px;
-
     .content {
       .title:not(.is-spaced) + .subtitle {
         margin-bottom: 0;
@@ -17,6 +15,14 @@
 
     .content:not(:last-child) {
       margin-bottom: 0;
+    }
+
+    .social-link .icon {
+      color: $grey;
+
+      &:hover {
+        color: $blue;
+      }
     }
   }
   padding: 1rem 1.5rem;

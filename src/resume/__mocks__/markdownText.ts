@@ -57,15 +57,18 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
 - Great problem solver \n
 - Quick learner\n
 
+Full-stack development lead for automating and augmenting business processes using open-source solutions and micro-services architectures.\n
+- Reduced 20% costs and 50% render time of application by splitting and relocating the application in different micro-service so we focused costs on resources with high computation.\n
+- Reduced development time by creating of configurable multi-layered React JS charts components consuming a Spring boot APIs with MyBatis for dynamic queries construction and common output responses.\n
+- Projects mounted in a cloud architecture deployed in IBM Cloud (cloud foundry)Key developer and architecture contributor.\n
+
 
 Design and development of core business and shared components for a global platform for real estate researchers & brokers.\n
 - built core base of in-house standard JSON object reader and patcher.\n
-- built composers objects as object builders to segregate business logic and create composable object.\n
+- built "composers" functions as object builders to segregate business logic and create a composable object.\n
 - built wizard angular component/service to create workflow efficiencies.\n
 - set base structure for reporting tools framework.\n
-- design developed reusable/configurable components like tables and agnostic command sets to add flexibility of business logic.\n
-- main contributor for design &  development platform to display filter items and form control inputs based on database catalog definition to
-allow reusability across the platform.\n
+- design & developed reusable/configurable components like tables and agnostic command sets to add the flexibility of business logic.\n
 
 
 As a nearshore company, we were a team extension for an Important American bank, we develop web application experiences using several 
