@@ -29,7 +29,7 @@ export function Profile({ profile }: ProfileProps) {
                   <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
                 </small>
               </p>
-              <p className="social-link">
+              <p className="social-link no-print">
                 <a target="_blank" rel="noopener noreferrer" href={profile.social.linkedIn}>
                   <span className="icon">
                     <i className="fab fa-linkedin fa-lg"></i>

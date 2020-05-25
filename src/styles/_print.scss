@@ -2,4 +2,16 @@
   .no-print {
     display: none;
   }
+
+  body {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 1em;
+  }
+  .tile .title,
+  .tile .title:not(:last-child) {
+    font-size: 1rem !important;
+  }
 }

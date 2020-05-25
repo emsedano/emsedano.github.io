@@ -27,7 +27,6 @@ function EducationItem({ education }: { education: EducationModel }) {
 
 export function Education({ profile }: ProfileProps) {
   const [showMore, setShowMore] = useState(false);
-  console.log(profile);
   const [latestEducation, ...formerEducation] = profile.education.filter(isCollege);
   const certs = profile.education.filter(isCert);
   const formerCollegeAndCerts = [...formerEducation, ...certs];
