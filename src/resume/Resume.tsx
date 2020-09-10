@@ -45,7 +45,7 @@ export function Resume() {
                     </Tile>
                   </Tile>
                   <Tile className="is-parent">
-                    <Tile title="current work" className="is-child">
+                    <Tile title="current job" className="is-child">
                       <RecentExperience profile={profile} />
                     </Tile>
                   </Tile>
