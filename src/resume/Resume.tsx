@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ProfileContext } from '../core/ProfileContext';
-import { Profile } from './profile/Profile';
 import { ProfileModel } from '../core/ProfileModel';
 import { Tile } from '../shared/components';
 import { Education } from './education/Education';

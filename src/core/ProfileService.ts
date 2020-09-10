@@ -3,7 +3,6 @@ import { from, Observable, of } from 'rxjs';
 import { map, shareReplay, take, concatMap, catchError, delay } from 'rxjs/operators';
 import { ProfileModel, Education, Experience, Articles } from './ProfileModel';
 import { randomWaitTimeFactory } from '../shared/utils/randomWaitTime';
-import { loadChildRefs } from './loadChildRefs';
 
 // random wait time generator
 const randomWaitTime = randomWaitTimeFactory(900);
