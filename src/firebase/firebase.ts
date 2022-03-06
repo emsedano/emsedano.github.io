@@ -1,6 +1,5 @@
-import app from 'firebase/app';
-import 'firebase/database';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, Firestore }  from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -12,11 +11,11 @@ const firebaseConfig = {
 };
 
 export class Firebase {
-  private db: firebase.firestore.Firestore;
+  private db: Firestore;
 
   constructor() {
-    app.initializeApp(firebaseConfig);
-    this.db = app.firestore();
+    const app = initializeApp(firebaseConfig)
+    this.db = getFirestore(app);
   }
 
   public get firestore() {

@@ -1,5 +1,5 @@
-import { DataObject } from '../shared/model/DataObject';
-import { firestore } from 'firebase';
+import { Data } from '../shared/model/DataObject';
+import { Firestore, Timestamp } from 'firebase/firestore';
 
 export interface Social {
   facebook: string;
@@ -17,8 +17,8 @@ export interface Contact {
 export interface Education {
   degree: string;
   type: 'cert' | 'college';
-  startDate: firestore.Timestamp;
-  endDate: firestore.Timestamp;
+  startDate:  Timestamp;
+  endDate: Timestamp;
   school: string;
 }
 
@@ -26,9 +26,9 @@ export interface Experience {
   company: string;
   position: string;
   pride: string;
-  projects: DataObject[];
-  startDate: firestore.Timestamp;
-  endDate: firestore.Timestamp;
+  projects: Data[];
+  startDate: Timestamp;
+  endDate: Timestamp;
 }
 
 export interface Articles {
@@ -44,7 +44,7 @@ export interface ProfileModel {
   articles: Articles[];
   education: Education[];
   contact: Contact;
-  social: DataObject;
+  social: Data;
   techStack: string;
   softSkills: string;
 }

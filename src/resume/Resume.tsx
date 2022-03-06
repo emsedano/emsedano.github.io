@@ -1,13 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ProfileContext } from '../core/ProfileContext';
-import { Profile } from './profile/Profile';
 import { ProfileModel } from '../core/ProfileModel';
 import { Tile } from '../shared/components';
 import { Education } from './education/Education';
 import { RecentExperience, AdditionalExperience } from './experience/Experience';
-
 import ReactMarkdown from 'react-markdown';
 import { MarkdownContent } from '../shared/components/markdown-content/markdown-content';
+import rehypeRaw from 'rehype-raw';
 
 // import markdownText from './__mocks__/markdownText';
 
@@ -28,7 +27,10 @@ export function Resume() {
                   <Tile className="is-parent">
                     <Tile title="languages & technologies" className="is-child">
                       <div className="markdown">
-                        <ReactMarkdown source={profile.techStack.replace(/\\n/gi, '\n')} escapeHtml={false} />
+                        <ReactMarkdown
+                          children={profile.techStack.replace(/\\n/gi, '\n')}
+                          rehypePlugins={[rehypeRaw]}
+                        />
                       </div>
                     </Tile>
                   </Tile>

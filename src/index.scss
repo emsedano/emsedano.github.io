@@ -1,7 +1,11 @@
 @charset "utf-8";
-@import 'styles/variables';
-@import 'bulma/bulma.sass';
-@import 'styles/overrides';
+@import '../node_modules/bulma/bulma.sass';
+@import 'styles/_variables.scss';
+@import 'styles/_overrides.scss';
 @import 'styles/markdown';
 // media print styles
-@import 'styles/print';
+@import 'styles/_print';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
