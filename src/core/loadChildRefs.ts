@@ -1,4 +1,4 @@
-import { Data } from '../shared/model/DataObject';
+import { Data } from '../shared/model/Data';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DocumentReference, DocumentSnapshot } from 'firebase/firestore';

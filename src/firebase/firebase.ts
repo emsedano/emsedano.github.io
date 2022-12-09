@@ -1,5 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, Firestore }  from 'firebase/firestore';
+import { getFirestore, Firestore } from 'firebase/firestore';
+import { getAuth, Auth } from 'firebase/auth';
+
+import { Authenticate } from '../login/Authenticate';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -12,13 +15,25 @@ const firebaseConfig = {
 
 export class Firebase {
   private db: Firestore;
+  private _authenticateService: {
+    signIn(email: string, pwd: string): Promise<any>;
+    logOut(): Promise<any>;
+    auth: Auth;
+  };
 
   constructor() {
-    const app = initializeApp(firebaseConfig)
+    const app = initializeApp(firebaseConfig);
+
     this.db = getFirestore(app);
+
+    this._authenticateService = Authenticate(getAuth(app));
   }
 
   public get firestore() {
     return this.db;
+  }
+
+  public get authService() {
+    return this._authenticateService;
   }
 }

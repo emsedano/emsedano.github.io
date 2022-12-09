@@ -1,5 +1,5 @@
-import { from, Observable, of } from 'rxjs';
-import { map, shareReplay, take, concatMap, catchError, delay } from 'rxjs/operators';
+import { from, Observable, of, concat } from 'rxjs';
+import { map, shareReplay, take, concatMap, catchError, delay, tap } from 'rxjs/operators';
 import { ProfileModel, Education, Experience, Articles } from './ProfileModel';
 import { randomWaitTimeFactory } from '../shared/utils/randomWaitTime';
 import {
@@ -16,11 +16,14 @@ import {
   QuerySnapshot,
 } from 'firebase/firestore';
 import Firebase from '../firebase';
+import { Data } from '../shared/model/Data';
 
 // random wait time generator
 const randomWaitTime = randomWaitTimeFactory(900);
 
-const fromSnapToData = <T>(snapshot: DocumentSnapshot<DocumentData>) => snapshot.data() as T;
+const fromSnapToData = <T>(snapshot: DocumentSnapshot<DocumentData>) => {
+  return { id: snapshot.id, ...(snapshot.data() as T) };
+};
 
 const fromSnapsToData = <T>(snapshots: QuerySnapshot<DocumentData>) =>
   snapshots.docs.map(doc => fromSnapToData<T>(doc));
@@ -30,6 +33,8 @@ export class ProfileService {
 
   fetchProfile(): Observable<{ loading: boolean; loadingStatus?: string; profile?: ProfileModel }> {
     return new Observable(subscriber => {
+      subscriber.next({ loading: true, loadingStatus: 'Fetching Profile' });
+
       this.profile$
         .pipe(
           take(1),

@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AdminPage } from './admin/AdminPage';
+import { ProfileProvider } from './core/ProfileContext';
+import { Footer } from './footer/Footer';
+import { AdminNavbar } from './admin/AdminNavbar';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: 'edit',
+    element: (
+      <Fragment>
+        <AdminNavbar />
+        <AdminPage />
+      </Fragment>
+    ),
+  },
+]);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProfileProvider>
+      <RouterProvider router={router} />
+      <Footer />
+    </ProfileProvider>
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 

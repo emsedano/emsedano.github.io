@@ -1,4 +1,4 @@
-import { Data } from '../shared/model/DataObject';
+import { Data } from '../shared/model/Data';
 import { Firestore, Timestamp } from 'firebase/firestore';
 
 export interface Social {
@@ -17,7 +17,7 @@ export interface Contact {
 export interface Education {
   degree: string;
   type: 'cert' | 'college';
-  startDate:  Timestamp;
+  startDate: Timestamp;
   endDate: Timestamp;
   school: string;
 }

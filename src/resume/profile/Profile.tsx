@@ -1,9 +1,13 @@
 import React from 'react';
-import { ProfileProps } from '../../core/ProfileModel';
 import logo from '../../logo.svg';
 import './Profile.scss';
+import { useProfile } from '../../core/ProfileContext';
 
-export function Profile({ profile }: ProfileProps) {
+export function Profile() {
+  // get profile from provider
+  const profileContext = useProfile();
+  const { profile } = profileContext;
+
   return (
     <div className="container">
       <section className="section profile">
