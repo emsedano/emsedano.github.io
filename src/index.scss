@@ -9,3 +9,32 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+@media print {
+  body {
+    
+    font-size: 8pt;
+
+    h1.title {
+      font-size: 12pt;
+    }
+
+    h2.subtitle {
+      font-size: 10pt;
+    }
+
+    .tile, .column {
+      padding: 0.35rem;
+    }
+
+    .image.is-128x128 {
+      height: 96px;
+      width: 96px;
+    }
+
+    .profile {
+      padding: 0.35rem;
+    }
+
+  }
+}
